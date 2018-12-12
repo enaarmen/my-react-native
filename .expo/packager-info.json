@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": "https://fe-c8m.anonymous.my-react-native.exp.direct",
-  "packagerNgrokUrl": "https://packager.fe-c8m.anonymous.my-react-native.exp.direct",
-  "ngrokPid": 1073
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
