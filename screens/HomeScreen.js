@@ -16,20 +16,18 @@ import { MonoText } from '../components/StyledText';
 class Blink extends Component {
   constructor(props) {
   super(props);
-  this.state = { isShowingText: true, text: "" };
+  this.state = { isShowingText: true };
   setInterval(() => {
-    this.setState(previousState => {
-        { this.state.isShowingText = !previousState.isShowingText, text=this.state.text }
-    }), 100});
-  };
-
+        this.setState(previousState => (
+        { isShowingText: !previousState.isShowingText }
+        ))}, 1000);
+  }
+  
   render () {
     if (!this.state.isShowingText)
-      return <Text>U WRONG!</Text>;
+      return null; //<Text>U WRONG!</Text>;
     return (
-      <View>
-        <Text>{this.props.text}</Text>
-      </View>
+        <Text>{this.props.Text}</Text>
     );
   }
 }
@@ -37,11 +35,11 @@ class Blink extends Component {
 export default class BlinkApp extends Component {
   render() {
     return (
-      <View>
-        <Blink text='I love to blink' />
-        <Blink text='Yes blinking is so great' />
-        <Blink text='Why did they ever take this out of HTML' />
-        <Blink text='Look at me look at me look at me' />
+      <View style={{alignItems: 'center'}}>
+        <Blink Text='I love to blink' />
+        <Blink Text='Yes blinking is so great' />
+        <Blink Text='Why did they ever take this out of HTML' />
+        <Blink Text='Look at me look at me look at me' />
       </View>
     );
   }
