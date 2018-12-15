@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerNgrokUrl": "https://mp-gcj.anonymous.my-react-native.exp.direct",
+  "packagerNgrokUrl": "https://packager.mp-gcj.anonymous.my-react-native.exp.direct",
+  "ngrokPid": 26915
 }

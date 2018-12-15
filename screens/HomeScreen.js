@@ -36,17 +36,17 @@ class Blink extends Component {
 export default class BlinkApp extends Component {
   render() {
     return (
-      
-      <View style={{alignItems: 'center'}}>
-        <UserName />
-        <Blink Text='I love to blink' />
-        <Blink Text='Yes blinking is so great' />
-        <Blink Text='Why did they ever take this out of HTML' />
-        <Blink Text='Look at me look at me look at me' />
+      <View>
+        <UserName/>
       </View>
     );
   }
 }
+
+        /*<Blink Text='I love to blink' />
+        <Blink Text='Yes blinking is so great' />
+        <Blink Text='Why did they ever take this out of HTML' />
+        <Blink Text='Look at me look at me look at me' />*/
 
 class UserName extends Component {
   constructor(props) {
@@ -54,18 +54,32 @@ class UserName extends Component {
     this.state = { knownuser: false, username: "", pass: "" };
   }
   render() {
-    if (this.state.knownuser && this.state.username != "" && this.state.pass != "")
+    if (this.state.knownuser && this.state.username != "" && this.state.pass != "") {
       return (
-      <View><Text> YOU are connnected: {this.state.username}, with pass: {this.state.pass}</Text></View>
+        <View style={styles.container}>
+          <Text> YOU are connnected: {this.state[1]}, with pass: {this.state[2]}.</Text>
+          <Blink Text='I love to blink' />
+          <Blink Text='Yes blinking is so great' />
+          <Blink Text='Why did they ever take this out of HTML' />
+          <Blink Text='Look at me look at me look at me' />
+        </View>
       );
-    else
-      return (<View>
-        <TextInput name="username" style={{ borderColor: 'gray' }} onEndEditing={(myText) => this.setState({ knownuser: true, username: myText, pass: "" })}/>
-        <TextInput name="pass" style={{ borderColor: 'gray' }} onEndEditing={(myText) => this.setState({ knownuser: true, username: this.state.username, pass: myText })}/>
-      </View>
+    }
+    else if (!this.state.knownuser && this.state.username != "" && this.pass != "") {
+      this.setState({ knownuser: true, username: this.state[1], pass: this.state[2] });
+      return (<Text> YOU just connnected: {this.state[1]}, with pass: {this.state[2]}.</Text>);
+    }
+    else {
+      return (
+        <View>
+          <TextInput name="user" style={{ borderColor: 'gray' }} onEndEditing={(myText) => this.setState({ knownuser: false, username: myText, pass: this.state.pass })}/>
+          <TextInput name="upass" style={{ borderColor: 'gray' }} onEndEditing={(myText) => this.setState({ knownuser: false, username: this.state.username, pass: myText })}/>
+        </View>
       );
+    }
   }
 }
+
 /*export default class HomeScreen extends React.Component {
   Blink;
   static navigationOptions = {
