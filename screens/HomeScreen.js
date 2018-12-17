@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   View,
   AppRegistry,
-  TextInput
+  TextInput,
+  Button
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
@@ -37,7 +38,7 @@ export default class BlinkApp extends Component {
   render() {
     return (
       <View>
-        <UserName/>
+        <UserName />
       </View>
     );
   }
@@ -54,10 +55,14 @@ class UserName extends Component {
     this.state = { knownuser: false, username: "", pass: "" };
   }
   render() {
-    if (this.state.knownuser && this.state.username != "" && this.state.pass != "") {
+    if (!this.state.knownuser && this.state.username != "" && this.state.pass != "") {
+      this.setState({ knownuser: true, username: this.state.username, pass: this.state.pass });
+      return (<Text>You connected to the app</Text>)
+    }
+    else if (this.state.knownuser && this.state.username != "" && this.state.pass != "") {
       return (
         <View style={styles.container}>
-          <Text> YOU are connnected: {this.state[1]}, with pass: {this.state[2]}.</Text>
+          <Text> YOU are connnected: {this.props.name}, with pass: {this.props.pass}.</Text>
           <Blink Text='I love to blink' />
           <Blink Text='Yes blinking is so great' />
           <Blink Text='Why did they ever take this out of HTML' />
@@ -65,15 +70,13 @@ class UserName extends Component {
         </View>
       );
     }
-    else if (!this.state.knownuser && this.state.username != "" && this.pass != "") {
-      this.setState({ knownuser: true, username: this.state[1], pass: this.state[2] });
-      return (<Text> YOU just connnected: {this.state[1]}, with pass: {this.state[2]}.</Text>);
-    }
     else {
       return (
         <View>
-          <TextInput name="user" style={{ borderColor: 'gray' }} onEndEditing={(myText) => this.setState({ knownuser: false, username: myText, pass: this.state.pass })}/>
-          <TextInput name="upass" style={{ borderColor: 'gray' }} onEndEditing={(myText) => this.setState({ knownuser: false, username: this.state.username, pass: myText })}/>
+          <Text>you are not connected.</Text>
+          <TextInput borderWith='20' name='user' type="text" value="username" style={{ borderColor: 'gray' }} onEndEditing={(myText) => this.setState({ knownuser: false, username: myText, pass: this.state.pass })}/>
+          <TextInput borderWith='20' name='pass' type="password" value="password" style={{ borderColor: 'gray' }} onEndEditing={(myText) => this.setState({ knownuser: false, username: this.state.username, pass: myText })}/>
+          <Button title="connect" borderWith='10' onEndEditing={() => this.setState({knownuser: true, username: this.state.username, pass: this.state.pass})}/>
         </View>
       );
     }
