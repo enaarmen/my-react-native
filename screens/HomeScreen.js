@@ -74,8 +74,8 @@ class UserName extends Component {
       return (
         <View>
           <Text>you are not connected.</Text>
-          <TextInput borderWith='20' name='user' type="text" value="username" style={{ borderColor: 'gray' }} onEndEditing={(myText) => this.setState({ knownuser: false, username: myText, pass: this.state.pass })}/>
-          <TextInput borderWith='20' name='pass' type="password" value="password" style={{ borderColor: 'gray' }} onEndEditing={(myText) => this.setState({ knownuser: false, username: this.state.username, pass: myText })}/>
+          <TextInput borderWith='20' name='user' type="text" style={{ borderColor: 'gray' }} onEndEditing={(myText) => this.setState({ knownuser: false, username: myText, pass: this.state.pass })}/>
+          <TextInput borderWith='20' name='pass' type="password" style={{ borderColor: 'gray' }} onEndEditing={(myText) => this.setState({ knownuser: false, username: this.state.username, pass: myText })}/>
           <Button title="connect" borderWith='10' onPress={() => this.setState({knownuser: true, username: this.state.username, pass: this.state.pass})}/>
         </View>
       );
