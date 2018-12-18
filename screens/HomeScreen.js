@@ -34,7 +34,7 @@ class Blink extends Component {
   }
 }
 
-export default class BlinkApp extends Component {
+class BlinkApp extends Component {
   render() {
     return (
       <View>
@@ -49,20 +49,21 @@ export default class BlinkApp extends Component {
         <Blink Text='Why did they ever take this out of HTML' />
         <Blink Text='Look at me look at me look at me' />*/
 
-class UserName extends Component {
+export default class UserName extends Component {
   constructor(props) {
     super(props);
     this.state = { knownuser: false, username: "", pass: "" };
   }
   render() {
-    if (!this.state.knownuser && this.state.username != "" && this.state.pass != "") {
+    /*if (!this.state.knownuser && this.state.username != "" && this.state.pass != "") {
       this.setState({ knownuser: true, username: this.state.username, pass: this.state.pass });
       return (<Text>You connected to the app</Text>)
     }
-    else if (this.state.knownuser && this.state.username != "" && this.state.pass != "") {
+    else if*/ 
+    if (this.state.knownuser && this.state.username != "" && this.state.pass != "") {
       return (
         <View style={styles.container}>
-          <Text> YOU are connnected: {this.props.name}, with pass: {this.props.pass}.</Text>
+          <Text> YOU are connnected: {this.state.name}, with pass: {this.state.pass}.</Text>
           <Blink Text='I love to blink' />
           <Blink Text='Yes blinking is so great' />
           <Blink Text='Why did they ever take this out of HTML' />
@@ -74,9 +75,9 @@ class UserName extends Component {
       return (
         <View>
           <Text>you are not connected.</Text>
-          <TextInput borderWith='20' name='user' type="text" style={{ borderColor: 'gray' }} onEndEditing={(myText) => this.setState({ knownuser: false, username: myText, pass: this.state.pass })}/>
-          <TextInput borderWith='20' name='pass' type="password" style={{ borderColor: 'gray' }} onEndEditing={(myText) => this.setState({ knownuser: false, username: this.state.username, pass: myText })}/>
-          <Button title="connect" borderWith='10' onPress={() => this.setState({knownuser: true, username: this.state.username, pass: this.state.pass})}/>
+          <TextInput borderWith='20' name='user' type="text" style={{ borderColor: 'gray' }} onEndEditing={this.state = (myText) => this.setState({ knownuser: false, username: myText, pass: "" })}/>
+          <TextInput borderWith='20' name='pass' type="password" style={{ borderColor: 'gray' }} onEndEditing={this.state = (myText) => this.setState({ knownuser: false, username: this.state.username, pass: myText })}/>
+          <Button title="connect" borderWith='10' onPress={this.state = () => this.setState({knownuser: true, username: this.state.username, pass: this.state.pass})}/>
         </View>
       );
     }
@@ -137,7 +138,7 @@ class UserName extends Component {
 
 styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 2,
     backgroundColor: '#fff',
     textAlign: 'center'
   },
