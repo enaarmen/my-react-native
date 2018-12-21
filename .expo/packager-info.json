@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerNgrokUrl": "https://w7-upk.anonymous.my-redux-rate.exp.direct",
+  "packagerNgrokUrl": "https://packager.w7-upk.anonymous.my-redux-rate.exp.direct",
+  "ngrokPid": 6816
 }
