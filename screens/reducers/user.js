@@ -15,6 +15,6 @@ export default function (state, action) {
             newState.user.loggedIn = true;
             return newState;
         default:
-            return state;
+            return state || newState;
     }
 };
