@@ -1,22 +1,19 @@
-var React = require('react-native');
-var { AppRegistry } = React;
-var login = require('./../components/Login');
-var userReducers = require('./reducers/user');
-
+import React, { Component } from 'react';
+import { AppRegistry, View, Text } from 'react-native';
+import Login  from './../components/Login';
 import { createStore, combineReducers } from 'redux';
-import { Provider } from 'react-native';
+import userReducers from './reducers/user';
+import { Provider } from 'react-redux';
+var login = require('./actions/index');
+var user = require('./reducers/user');
 
-let store = createStore(combineReducers({userReducers}));
+let store = createStore(combineReducers({ userReducers }));
 
-class App extends React.Compnent {
-    rnder() {
-        return (
-            <Login/>
-        );
+export default class HomeScreen extends Component {
+    constructor(props) {
+        super(props);
     }
-}
 
-class MyApp extends React.Component {
     render () {
         return (
             <Provider store={store}>
@@ -26,4 +23,15 @@ class MyApp extends React.Component {
     }
 }
 
-AppRegistry.registerComponent('biba', () => MyApp);
+class App extends Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return (
+            <Login/>
+        );
+    }
+}
+
+//AppRegistry.registerComponent('biba', () => MyApp);
