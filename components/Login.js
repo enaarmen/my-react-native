@@ -31,13 +31,15 @@ class Login extends React.Component {
   }
 
   render() {
-    if (this.props.logged) {
-      return (<Text>Logged in {this.props.username}.</Text>);
+    if (this.props.user.loggedIn) {
+      return (<View><Text>Logged in {this.props.username}.</Text></View>);
     } else {
-      return (<View>
-          <TextInput name='username' onEndEditing={(username) => this.props.username = username}>in there</TextInput>
-          <TextInput name='password' type='password' onEndEditing={(password) => this.props.password = password}>just here pass</TextInput>
-          <TouchableHighlight onPress={this.onLoginButtonPress(this.props.username, this.props.password)}>  
+      return (
+      <View>
+          <TextInput name='username' onEndEditing={(username) => this.state.user.username = username}>in there</TextInput>
+          <TextInput name='password' type='password' onEndEditing={(password) => this.state.user.password = password}>just here pass</TextInput>
+          <TouchableHighlight onPress={this.onLoginButtonPress(this.state.user.username, this.state.user.password)}>
+          apppuies ici.
           </TouchableHighlight>
       </View>
       );

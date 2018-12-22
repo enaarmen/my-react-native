@@ -5,7 +5,6 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 var userReducers = require('./reducers/user');
 var login = require('./actions/index');
-var user = require('./reducers/user');
 
 let store = createStore(combineReducers({ ...userReducers }));
 
@@ -18,7 +17,9 @@ export default class HomeScreen extends Component {
         return (
             <View>
             <Provider store={store}>
-                {() => <App />}
+                <Text>
+                    () { <App /> }
+                </Text>
             </Provider>
             </View>
         );
@@ -31,7 +32,7 @@ class App extends Component {
     }
     render() {
         return (
-            <Login/>
+            () => { <Login/> }
         );
     }
 }
