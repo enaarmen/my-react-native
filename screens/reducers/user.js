@@ -1,12 +1,13 @@
 import {
-    LOGIN_SUCCESS
+    LOGIN_SUCCESS,
+    LOGIN_ERROR
 } from '../actions/index';
 
 let cloneOject = function(obj) {
     return JSON.parse(JSON.stringify(obj))
 }
 
-let newState = { user: { loggedIn: false, username: '', password: '' }};
+let newState = { user: { loggedIn: false, username: "", password: "" } };
 
 export default function (state, action) {
     switch (action.type) {

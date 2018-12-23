@@ -1,0 +1,129 @@
+[33m[32mThere is a new version of expo-cli available (2.6.14).[33m[39m
+[33m[32mYou are currently using expo-cli 2.6.5[33m[39m
+[33m[32mRun `npm install -g expo-cli` to get the latest version[33m[39m
+[33m[19:16:19][39m [33m[1mRemote debugger is in a background tab which may cause apps to perform slowly. Fix this by foregrounding the tab (or opening it in a separate window).[22m[39m
+[33m- node_modules/expo/build/logs/LogSerialization.js:145:14 in _captureConsoleStackTrace[39m
+[33m- node_modules/expo/build/logs/LogSerialization.js:40:24 in Object.serializeLogDataAsync$[39m
+[33m- ... 9 more stack frames from framework internals[39m
+[31m[19:16:24][39m [31m[1mWarning: React.createElement: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s%s, object,  You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.[22m[39m
+[31m[1m[22m[39m
+[31m[1mCheck your code at HomeScreen.js:34., [22m[39m
+[31m[1m    in MyApp (at HomeScreen.js:20)[22m[39m
+[31m[1m    in Provider (at HomeScreen.js:19)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in HomeScreen (at App.js:29)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in App (at registerRootComponent.js:17)[22m[39m
+[31m[1m    in RootErrorBoundary (at registerRootComponent.js:16)[22m[39m
+[31m[1m    in ExpoRootComponent (at renderApplication.js:34)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in AppContainer (at renderApplication.js:33)[22m[39m
+[31m- node_modules/expo/build/logs/LogSerialization.js:145:14 in _captureConsoleStackTrace[39m
+[31m- node_modules/expo/build/logs/LogSerialization.js:40:24 in Object.serializeLogDataAsync$[39m
+[31m- ... 9 more stack frames from framework internals[39m
+[31m[19:16:25][39m [31m[1mInvariant Violation: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.[22m[39m
+[31m[1m[22m[39m
+[31m[1mCheck the render method of `MyApp`.[22m[39m
+[31m[1m[22m[39m
+[31m[1mThis error is located at:[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in MyApp (at HomeScreen.js:20)[22m[39m
+[31m[1m    in Provider (at HomeScreen.js:19)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in HomeScreen (at App.js:29)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in App (at registerRootComponent.js:17)[22m[39m
+[31m[1m    in RootErrorBoundary (at registerRootComponent.js:16)[22m[39m
+[31m[1m    in ExpoRootComponent (at renderApplication.js:34)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in AppContainer (at renderApplication.js:33)[22m[39m
+[31m- node_modules/react-native/Libraries/Renderer/oss/ReactNativeRenderer-dev.js:5629:8 in createFiberFromElement[39m
+[31m- node_modules/react-native/Libraries/Renderer/oss/ReactNativeRenderer-dev.js:9709:22 in reconcileSingleElement[39m
+[31m- ... 8 more stack frames from framework internals[39m
+[31m[19:16:56][39m [31m[31mSyntaxError: /home/bivman/Epitech/teck4/cours/react-tuto/redux/my-redux-rate/screens/HomeScreen.js: Only one default export allowed per module. (27:0)[31m[39m
+[31m[19:16:56][39m [31m[31m[31m[39m
+[31m[19:16:56][39m [31m[31m  25 | }[31m[39m
+[31m[19:16:56][39m [31m[31m  26 | [31m[39m
+[31m[19:16:56][39m [31m[31m> 27 | export default class MyApp extends Component {[31m[39m
+[31m[19:16:56][39m [31m[31m     | ^[31m[39m
+[31m[19:16:56][39m [31m[31m  28 |     constructor(props) {[31m[39m
+[31m[19:16:56][39m [31m[31m  29 |         super(props);[31m[39m
+[31m[19:16:56][39m [31m[31m  30 |     }[31m[39m
+[33m[19:16:59][39m [33m[1mRemote debugger is in a background tab which may cause apps to perform slowly. Fix this by foregrounding the tab (or opening it in a separate window).[22m[39m
+[33m- node_modules/expo/build/logs/LogSerialization.js:145:14 in _captureConsoleStackTrace[39m
+[33m- node_modules/expo/build/logs/LogSerialization.js:40:24 in Object.serializeLogDataAsync$[39m
+[33m- ... 9 more stack frames from framework internals[39m
+[31m[19:17:01][39m [31m[1mInvariant Violation: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.[22m[39m
+[31m[1m[22m[39m
+[31m[1mCheck the render method of `MyApp`.[22m[39m
+[31m[1m[22m[39m
+[31m[1mThis error is located at:[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in MyApp (at HomeScreen.js:20)[22m[39m
+[31m[1m    in Provider (at HomeScreen.js:19)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in HomeScreen (at App.js:29)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in App (at registerRootComponent.js:17)[22m[39m
+[31m[1m    in RootErrorBoundary (at registerRootComponent.js:16)[22m[39m
+[31m[1m    in ExpoRootComponent (at renderApplication.js:34)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in AppContainer (at renderApplication.js:33)[22m[39m
+[31m- node_modules/react-native/Libraries/Renderer/oss/ReactNativeRenderer-dev.js:5629:8 in createFiberFromElement[39m
+[31m- node_modules/react-native/Libraries/Renderer/oss/ReactNativeRenderer-dev.js:9709:22 in reconcileSingleElement[39m
+[31m- ... 8 more stack frames from framework internals[39m
+[31m[19:17:03][39m [31m[31mSyntaxError: /home/bivman/Epitech/teck4/cours/react-tuto/redux/my-redux-rate/screens/HomeScreen.js: Only one default export allowed per module. (27:0)[31m[39m
+[31m[19:17:03][39m [31m[31m[31m[39m
+[31m[19:17:03][39m [31m[31m  25 | }[31m[39m
+[31m[19:17:03][39m [31m[31m  26 | [31m[39m
+[31m[19:17:03][39m [31m[31m> 27 | export default class MyApp extends Component {[31m[39m
+[31m[19:17:03][39m [31m[31m     | ^[31m[39m
+[31m[19:17:03][39m [31m[31m  28 |     constructor(props) {[31m[39m
+[31m[19:17:03][39m [31m[31m  29 |         super(props);[31m[39m
+[31m[19:17:03][39m [31m[31m  30 |     }[31m[39m
+[33m[19:17:09][39m [33m[1mRemote debugger is in a background tab which may cause apps to perform slowly. Fix this by foregrounding the tab (or opening it in a separate window).[22m[39m
+[33m- node_modules/expo/build/logs/LogSerialization.js:145:14 in _captureConsoleStackTrace[39m
+[33m- node_modules/expo/build/logs/LogSerialization.js:40:24 in Object.serializeLogDataAsync$[39m
+[33m- ... 9 more stack frames from framework internals[39m
+[31m[19:17:14][39m [31m[1mWarning: React.createElement: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s%s, object,  You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.[22m[39m
+[31m[1m[22m[39m
+[31m[1mCheck your code at HomeScreen.js:34., [22m[39m
+[31m[1m    in MyApp (at HomeScreen.js:20)[22m[39m
+[31m[1m    in Provider (at HomeScreen.js:19)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in HomeScreen (at App.js:29)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in App (at registerRootComponent.js:17)[22m[39m
+[31m[1m    in RootErrorBoundary (at registerRootComponent.js:16)[22m[39m
+[31m[1m    in ExpoRootComponent (at renderApplication.js:34)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in AppContainer (at renderApplication.js:33)[22m[39m
+[31m- node_modules/expo/build/logs/LogSerialization.js:145:14 in _captureConsoleStackTrace[39m
+[31m- node_modules/expo/build/logs/LogSerialization.js:40:24 in Object.serializeLogDataAsync$[39m
+[31m- ... 9 more stack frames from framework internals[39m
+[31m[19:17:16][39m [31m[1mInvariant Violation: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.[22m[39m
+[31m[1m[22m[39m
+[31m[1mCheck the render method of `MyApp`.[22m[39m
+[31m[1m[22m[39m
+[31m[1mThis error is located at:[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in MyApp (at HomeScreen.js:20)[22m[39m
+[31m[1m    in Provider (at HomeScreen.js:19)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in HomeScreen (at App.js:29)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in App (at registerRootComponent.js:17)[22m[39m
+[31m[1m    in RootErrorBoundary (at registerRootComponent.js:16)[22m[39m
+[31m[1m    in ExpoRootComponent (at renderApplication.js:34)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in RCTView (at View.js:44)[22m[39m
+[31m[1m    in AppContainer (at renderApplication.js:33)[22m[39m
+[31m- node_modules/react-native/Libraries/Renderer/oss/ReactNativeRenderer-dev.js:5629:8 in createFiberFromElement[39m
+[31m- node_modules/react-native/Libraries/Renderer/oss/ReactNativeRenderer-dev.js:9709:22 in reconcileSingleElement[39m
+[31m- ... 8 more stack frames from framework internals[39m
+Error: read EIO
+    at TTY.onStreamRead (internal/stream_base_commons.js:111:27)

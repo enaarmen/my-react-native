@@ -3,6 +3,7 @@ import { AppRegistry, View, Text } from 'react-native';
 import Login  from '../components/Login';
 //import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import MyApp from './MyApp'
 //var userReducers = require('./reducers/user');
 //var Login = require('../components/Login')
 
@@ -24,17 +25,4 @@ export default class HomeScreen extends Component {
     }
 }
 
-class MyApp extends Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return (
-            <View>
-                <Login store={this.props.store}/>
-            </View>
-        );
-    }
-}
-
-//AppRegistry.registerComponent('biba', () => MyApp);
+//AppRegistry.registerComponent('biba', () => HomeScreen);

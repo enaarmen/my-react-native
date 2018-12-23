@@ -15,6 +15,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from'react-redux';
 import * as Action from '../screens/actions'
 
+let previousState = null;
 
 function mapStateToProps(state) { return {user: state.userReducer.user}; }
 function mapDispatchToProps(dispatch) { return bindActionCreator()}
@@ -31,22 +32,31 @@ export default class Login extends Component {
         password: password
       }
     };
+    return (this.props.store);
   }
 
   render() {
     //if (this.props.store.user.loggedIn) {
-      if (('user' in this.props.store) && ('loggedIn' in this.props.store.user) && this.props.store.user.loggedIn) {
-      return (<View><Text>Logged in {this.props.store.username}.</Text></View>);
-    } else {
-      return (
-      <View>
-          <TextInput name='username' onEndEditing={(username) => this.props.store.user.username = username} />
-          <TextInput name='password' type='password' onEndEditing={(password) => this.props.store.user.password = password} />
-          <TouchableHighlight onPress={this.onLoginButtonPress(this.props.store.user.username, this.props.store.user.password)} />
-      </View>
-      );
+      if (previousState == null) {
+        return (
+          <View>
+            <Text>enter username to continue.</Text>
+            <TextInput onEndEditing={previousState = (text) => this.setState({ user: { loggedIn: false, username: text, password: ""}})} />
+          </View>
+          );
+      } else if (('store' in this.props) && ('user' in this.props.store) && ('loggedIn' in this.props.store.user) && this.props.store.user.loggedIn) {
+        return (<View><Text>Logged in {this.props.store.username}.</Text></View>);
+      } else if (previousState != null && 'store' in previousState.props && previousState.props.store.user.username != "") 
+      {
+        return (
+          <View>
+            <TextInput onEndEditing={previousState = (text) => this.setState({ user: { loggedIn: false, username: previousState.props.store.user.username, password: text } })} />
+            <Button onPress={this.onLoginButtonPress(previousState.props.store.user.username,  previousState.props.store.user.password )} />
+          </View>
+        );
+      }
     }
   }
-}
+
 
 connect(mapStateToProps, mapDispatchToProps)(Login);
