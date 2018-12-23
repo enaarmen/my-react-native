@@ -19,32 +19,34 @@ import * as Action from '../screens/actions'
 function mapStateToProps(state) { return {user: state.userReducer.user}; }
 function mapDispatchToProps(dispatch) { return bindActionCreator()}
 
-class Login extends React.Component {
+export default class Login extends Component {
+  constructor(props) {
+    super(props);
+  }
   onLoginButtonPress(username, password) {
-    this.props.login({
+    this.props.store = {
       user: {
         loggedIn: true,
         username: username,
         password: password
       }
-    });
+    };
   }
 
   render() {
-    if (this.props.user.loggedIn) {
-      return (<View><Text>Logged in {this.props.username}.</Text></View>);
+    //if (this.props.store.user.loggedIn) {
+      if (('user' in this.props.store) && ('loggedIn' in this.props.store.user) && this.props.store.user.loggedIn) {
+      return (<View><Text>Logged in {this.props.store.username}.</Text></View>);
     } else {
       return (
       <View>
-          <TextInput name='username' onEndEditing={(username) => this.state.user.username = username}>in there</TextInput>
-          <TextInput name='password' type='password' onEndEditing={(password) => this.state.user.password = password}>just here pass</TextInput>
-          <TouchableHighlight onPress={this.onLoginButtonPress(this.state.user.username, this.state.user.password)}>
-          apppuies ici.
-          </TouchableHighlight>
+          <TextInput name='username' onEndEditing={(username) => this.props.store.user.username = username} />
+          <TextInput name='password' type='password' onEndEditing={(password) => this.props.store.user.password = password} />
+          <TouchableHighlight onPress={this.onLoginButtonPress(this.props.store.user.username, this.props.store.user.password)} />
       </View>
       );
     }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+connect(mapStateToProps, mapDispatchToProps)(Login);

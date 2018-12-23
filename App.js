@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+import HomeScreen from './screens/HomeScreen';
+import { createStore, combineReducers } from 'redux';
 
-export default class App extends React.Component {
+var userReducers = require('./screens/reducers/user');
+let store = createStore(combineReducers({ ...userReducers }));
+
+export default class App extends Component {
   state = {
     isLoadingComplete: false,
   };
@@ -21,11 +26,13 @@ export default class App extends React.Component {
       return (
          <View style={styles.container}>
             {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-            <AppNavigator />
+              <HomeScreen store={store} />
          </View>
       );
     }
   }
+
+//<AppNavigator />
 
   _loadResourcesAsync = async () => {
     return Promise.all([

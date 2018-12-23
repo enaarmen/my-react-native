@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { AppRegistry, View, Text } from 'react-native';
-import Login  from './../components/Login';
-import { createStore, combineReducers } from 'redux';
+import Login  from '../components/Login';
+//import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-var userReducers = require('./reducers/user');
-var login = require('./actions/index');
+//var userReducers = require('./reducers/user');
+//var Login = require('../components/Login')
 
-let store = createStore(combineReducers({ ...userReducers }));
+//let store = createStore(combineReducers({ ...userReducers }));
 
 export default class HomeScreen extends Component {
     constructor(props) {
@@ -16,23 +16,23 @@ export default class HomeScreen extends Component {
     render () {
         return (
             <View>
-            <Provider store={store}>
-                <Text>
-                    () { <App /> }
-                </Text>
-            </Provider>
+                <Provider store={this.props.store}>
+                    <MyApp store={this.props.store}/>
+                </Provider>
             </View>
         );
     }
 }
 
-class App extends Component {
+class MyApp extends Component {
     constructor(props) {
         super(props);
     }
     render() {
         return (
-            () => { <Login/> }
+            <View>
+                <Login store={this.props.store}/>
+            </View>
         );
     }
 }
