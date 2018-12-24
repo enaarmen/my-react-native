@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerNgrokUrl": "https://nm-uhc.anonymous.my-redux-rate.exp.direct",
+  "packagerNgrokUrl": "https://packager.nm-uhc.anonymous.my-redux-rate.exp.direct",
+  "ngrokPid": 8618
 }

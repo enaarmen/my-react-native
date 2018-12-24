@@ -40,22 +40,22 @@ export default class Login extends Component {
       if (this.previousState == null) {
         this.previousState = this.props.store;
         return (
-          <View style={styles.container}>
+          <View>
             <Text>enter username to continue.</Text>
             <TextInput style={borderColor='#000'} onEndEditing={this.previousState.user = (text) => this.setState({ loggedIn: false, username: text, password: ''})} /> 
           </View>
           );
       } else if (this.previousState && 'user' in this.previousState && this.previousState.user.username != '') {
         return (
-          <View style={styles.container}>
-            <TextInput onEndEditing={this.previousState.user = (text) => this.SetState({logedIn: false, username: this.previousState.user.username, password: text })} />
+          <View >
+            <TextInput onEndEditing={this.previousState.user = (text) => ({loggedIn: false, username: this.previousState.user.username, password: text })} />
             <Button onPress={this.onLoginButtonPress(this.previousState.user.username, this.previousState.user.password )} title='bonjour' />
           </View>
         );
       } else if (this.previousState && 'user' in this.previousState && 'loggedIn' in this.previousState.user && this.previousState.user.loggedIn) {
-        return (<View style={styles.container}><Text>Logged in {this.props.store.user.username}.</Text></View>);
+        return (<View><Text>Logged in {this.props.store.user.username}.</Text></View>);
       } else {
-        return (<View style={styles.container}><Text>You out of context.</Text><Text>Look: {this.previousState}</Text></View>)
+        return (<View><Text>You out of context.</Text><Text>Look: {this.previousState}</Text></View>)
       }
     }
   }
@@ -65,10 +65,8 @@ export default class Login extends Component {
  const styles = StyleSheet.create({
   container: {
     flex: 1,
-    textAlignVertical: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100',
-    height: '100'
   },
+  myText: {
+
+  }
 });
