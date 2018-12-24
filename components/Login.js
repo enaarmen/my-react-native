@@ -47,16 +47,21 @@ export default class Login extends Component {
           );
       } else if (this.previousState && 'user' in this.previousState && this.previousState.user.username != '') {
         return (
-          <View >
-            <TextInput onEndEditing={this.previousState.user = (text) => ({loggedIn: false, username: this.previousState.user.username, password: text })} />
-            <Button onPress={this.onLoginButtonPress(this.previousState.user.username, this.previousState.user.password )} title='bonjour' />
+          <View>
+            <TextInput onEndEditing={(this.previousState.user.password = (text) => text)} />
+            <Button title='coucou' onPress={this.onLoginButtonPress(this.previousState.user.username, this.previousState.user.username)} />
           </View>
         );
-      } else if (this.previousState && 'user' in this.previousState && 'loggedIn' in this.previousState.user && this.previousState.user.loggedIn) {
-        return (<View><Text>Logged in {this.props.store.user.username}.</Text></View>);
-      } else {
-        return (<View><Text>You out of context.</Text><Text>Look: {this.previousState}</Text></View>)
-      }
+      } else if (this.previousState && 'user' in this.previousState && this.previousState.user.username != '' && this.previousState.user.password != '') { 
+        return (
+        <View>
+          <Button title='bonjour' onPress={this.onLoginButtonPress(this.previousState.user.username, this.previousState.user.password )} />
+        </View>
+        );
+      } else if (this.prop.store.loggedIn)
+          return (<View><Text>Logged in {this.props.store.user.username}.</Text></View>);
+        else
+          return (<View><Text>You out of context.</Text><Text>Look: {this.previousState}</Text></View>)
     }
   }
 
