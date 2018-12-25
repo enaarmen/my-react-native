@@ -18,7 +18,7 @@ export default class HomeScreen extends Component {
         return (
             <View>
                 <Provider store={this.props.store}>
-                    <MyApp store={this.props.store}/>
+                    <Login store={this.props.store}/>
                 </Provider>
             </View>
         );

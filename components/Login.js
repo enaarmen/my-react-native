@@ -11,65 +11,60 @@ import {
   TextInput,
   Button
 } from 'react-native';
-import { bindActionCreators } from 'redux'
-import { connect } from'react-redux';
 import * as Action from '../screens/actions'
-
-function mapStateToProps(state) { return {user: state.userReducer.user}; }
-function mapDispatchToProps(dispatch) { return bindActionCreator()}
+import LogPassword from './LogPassword';
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
-    let previousState = null;
+    this.state = null;
   }
 
-
-  onLoginButtonPress(username, password) {
-    this.props.store = {
-      user: {
-        loggedIn: true,
-        username: username,
-        password: password
-      }
-    };
-  }
-
-  render() {
-    //if (this.props.store.user.loggedIn) {
-      if (this.previousState == null) {
-        this.previousState = this.props.store;
+  render() {  
+    if (!this.state) {
+        //this.state = this.props.store;
         return (
           <View>
             <Text>enter username to continue.</Text>
-            <TextInput style={borderColor='#000'} onEndEditing={this.previousState.user = (text) => this.setState({ loggedIn: false, username: text, password: ''})} /> 
+            <TextInput onEndEditing={(username) => {this.setState({ user: { loggedIn: false, username: username, password: ''}})}} />
           </View>
           );
-      } else if (this.previousState && 'user' in this.previousState && this.previousState.user.username != '') {
+      } else
         return (
           <View>
-            <TextInput onEndEditing={(this.previousState.user.password = (text) => text)} />
-            <Button title='coucou' onPress={this.onLoginButtonPress(this.previousState.user.username, this.previousState.user.username)} />
+            <LogPassword store={this.state} />
           </View>
-        );
-      } else if (this.previousState && 'user' in this.previousState && this.previousState.user.username != '' && this.previousState.user.password != '') { 
+          );
+      /*
+      else if (this.state.user.loggedIn) {
+        return (<LoggedIn username={this.state.user.username} password={this.state.user.password} />);
+      } else
+        return (<View><Text>You out of context.</Text><Text>Look: {this.state}</Text></View>);
+        */
+
+      /*else if (this.prop.store.user.loggedIn) {
+        return (
+          <LoggedIn username={this.previousState.user.username} password={this.previousState.user.password}
+        )
+      }*/ /*else if (this.previousState && 'user' in this.previousState && this.previousState.user.username != '' && this.previousState.user.password != '') { 
         return (
         <View>
-          <Button title='bonjour' onPress={this.onLoginButtonPress(this.previousState.user.username, this.previousState.user.password )} />
+          
         </View>
         );
-      } else if (this.prop.store.loggedIn)
-          return (<View><Text>Logged in {this.props.store.user.username}.</Text></View>);
-        else
-          return (<View><Text>You out of context.</Text><Text>Look: {this.previousState}</Text></View>)
-    }
+      } else if (this.prop.store.user.loggedIn)
+          return (<View><Text>Logged in {this.props.store.user.username}.</Text></View>);*/
+        /*else
+          return (<View><Text>You out of context.</Text><Text>Look: {this.previousState}</Text></View>)*/
+    //}
   }
-
- connect(mapStateToProps, mapDispatchToProps)(Login);
+}
+  //<Button title='coucou' onPress={this.onLoginButtonPress(this.previousState.user.username, this.previousState.user.username)} />
 
  const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#000'
   },
   myText: {
 
