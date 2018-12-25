@@ -40,9 +40,10 @@ export default class LogPassword extends Component {
         if (!this.state.user.loggedIn) {
             return (<View>
                 <Text>Enter your password.</Text>
-                <TextInput onEndEditing={(password) => {this.setState({ user: { loggedIn: false, username: this.props.store.user.username, password: password}})}} />
-                <Button title="connnect" onPress={this.state = () => {this.onLoginButtonPress(this.props.store.user.username, this.state.user.password)}} />
+                <TextInput onEndEditing={(password) => {this.setState({ user: { loggedIn: true, username: this.props.store.user.username, password: password}})}} />
             </View>);
+        } else {
+            return (<Button title="connnect" onPress={this.onLoginButtonPress(this.props.store.user.username, this.state.user.password)} />);
         }
         if (this.state.user.loggedIn)
             return (<View><LoggedIn store={this.state} /></View>);
