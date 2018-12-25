@@ -20,8 +20,8 @@ export default class LoggedIn extends Component {
 
     render () {
         <View>
-        <Text>Bonjour {this.props.store.username}.</Text>
-        <Text>tu t'es connecté avec le mot de passe: {this.props.store.password}.</Text>
+            <Text>Bonjour {this.props.store.username}.</Text>
+            <Text>tu t'es connecté avec le mot de passe: {this.props.store.password}.</Text>
         </View>
     }
 }

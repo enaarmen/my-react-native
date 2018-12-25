@@ -32,9 +32,12 @@ export default class LogPassword extends Component {
             password: password
           }
         };
-        return (this.props.store);
       }
     
+    renderLog (username, password) {
+        this.onLoginButtonPress(username, password);
+        return (() => <LoggedIn store={this.props.store} />);
+    }
 
     render() {
         if (!this.state.user.loggedIn) {
@@ -43,10 +46,15 @@ export default class LogPassword extends Component {
                 <TextInput onEndEditing={(password) => {this.setState({ user: { loggedIn: true, username: this.props.store.user.username, password: password}})}} />
             </View>);
         } else {
-            return (<Button title="connnect" onPress={this.onLoginButtonPress(this.props.store.user.username, this.state.user.password)} />);
+            this.renderLog(this.props.store.user.username, this.state.user.password);
+            return (
+                <View>
+                    <Button title="connect" onPress={() => <LoggedIn store={this.props.store} />} />
+                </View>
+                );
         }
-        if (this.state.user.loggedIn)
-            return (<View><LoggedIn store={this.state} /></View>);
+        /*if (this.state.user.loggedIn)
+            return (<View><LoggedIn store={this.state} /></View>);*/
     }
 }
 
