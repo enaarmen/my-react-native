@@ -18,15 +18,16 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = null;
+    this.user = '';
   }
 
   render() {  
-    if (!this.state) {
+    if (!this.state || this.state.user.username == '') {
         //this.state = this.props.store;
         return (
           <View>
             <Text>enter username to continue.</Text>
-            <TextInput onEndEditing={(username) => {this.setState({ user: { loggedIn: false, username: username, password: ''}})}} />
+            <TextInput onChangeText={(text) => this.user = text} onEndEditing={() => this.setState({ user: { loggedIn: false, username: this.user, password: ''}})} />
           </View>
           );
       } else
