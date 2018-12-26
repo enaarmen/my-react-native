@@ -19,9 +19,11 @@ export default class LoggedIn extends Component {
     }
 
     render () {
-        <View>
-            <Text>Bonjour {this.props.store.username}.</Text>
-            <Text>tu t'es connecté avec le mot de passe: {this.props.store.password}.</Text>
-        </View>
+        return (
+            <View>
+                <Text>Bonjour {this.props.store.user.username}.</Text>
+                <Text>tu t'es connecté avec le mot de passe: {this.props.store.user.password}.</Text>
+            </View>
+        );
     }
 }
