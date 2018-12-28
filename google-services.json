@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "647672545862",
+    "firebase_url": "https://messenredge.firebaseio.com",
+    "project_id": "messenredge",
+    "storage_bucket": "messenredge.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647672545862:android:61f1b0506890c408",
+        "android_client_info": {
+          "package_name": "com.cirreyves.messenrdge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647672545862-6thcnpebjgbfivoc585ns0lstg4e4mp1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlgeK4vOp5VgVaXfm-d_g2MIPKORI-thE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -11,7 +11,7 @@ import {
   TextInput,
   Button
 } from 'react-native';
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux';
 
 export default class LoggedIn extends Component {
     constructor(props) {

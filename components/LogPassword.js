@@ -25,7 +25,7 @@ export default class LogPassword extends Component {
     }
 
     onLoginButtonPress(username, password) {
-        this.setState(this.props.store = {
+        this.props.store = this.setState({
           user: {
             loggedIn: true,
             username: username,
@@ -33,31 +33,21 @@ export default class LogPassword extends Component {
           }
         });
       }
-    
-    /*renderLog (username, password) {
-        this.onLoginButtonPress(username, password);
-        return (() => <LoggedIn store={this.props.store} />);
-    }*/
 
     render() {
-        console.log("MY STATES:", this.state);
-        if (!this.state || !this.state.user.loggedIn) {
+        if (!this.state || ('user' in this.state && !this.state.user.loggedIn)) {
             return (<View>
                 <Text>Enter your password.</Text>
-                <TextInput onChangeText={(text) => this.pass = text} onEndEditing={() => {this.setState({ user: { loggedIn: true, username: this.props.store.user.username, password: this.pass}})}} />
-                <Button title="connect" onPress={() => {this.onLoginButtonPress(this.state.user.username, this.pass)}} />
+                <TextInput onChangeText={(text) => this.pass = text} onEndEditing={() => this.onLoginButtonPress(this.props.store.user.username, this.pass)} />
             </View>
             );
-        } else {
+        } else if ('user' in this.state && this.state.user.loggedIn) {
             return (
-                <LoggedIn store={this.state} />
+                <Button title="connect" onPress={() => {return (<View><LoggedIn store={this.state} /></View>)}} />
             );
+        } else {
+            return (<View><Text>You are out of context.</Text></View>);
         }
-        /*else if ('user' in this.state && this.state.user.loggedIn && this.state.user.password != '') {
-            <Button title="connect" onPress={() => {this.onLoginButtonPress(this.state.user.username, this.state.user.password); return (<LoggedIn store={this.state} />)}} />
-        } */
-        /*if (this.state.user.loggedIn)
-            return (<View><LoggedIn store={this.state} /></View>);*/
     }
 }
 
