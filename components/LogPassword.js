@@ -22,9 +22,11 @@ export default class LogPassword extends Component {
     constructor(props) {
         super(props);
         this.pass = '';
+        this.passAuth = false;
     }
 
     onLoginButtonPress(username, password) {
+        this.passAuth = true;
         this.props.store = this.setState({
           user: {
             loggedIn: true,
@@ -35,7 +37,23 @@ export default class LogPassword extends Component {
       }
 
     render() {
-        if (!this.state || ('user' in this.state && !this.state.user.loggedIn)) {
+        if (!this.passAuth) {
+            return (
+                <View>
+                    <Text>Enter your password.</Text>
+                    <TextInput onChangeText={(text) => this.pass = text} onEndEditing={() => {this.onLoginButtonPress(this.props.store.user.username, this.pass)}} />
+                </View>
+            );
+        } else {
+            return (
+                <View>
+                    <Button title="connect" onPress={() => {return (<LoggedIn store={this.state} />);}} />
+                </View>
+            );
+        }
+    }
+         
+        /*if (!this.state || ('user' in this.state && !this.state.user.loggedIn)) {
             return (<View>
                 <Text>Enter your password.</Text>
                 <TextInput onChangeText={(text) => this.pass = text} onEndEditing={() => this.onLoginButtonPress(this.props.store.user.username, this.pass)} />
@@ -47,8 +65,7 @@ export default class LogPassword extends Component {
             );
         } else {
             return (<View><Text>You are out of context.</Text></View>);
-        }
-    }
+        }*/
 }
 
 connect(mapStateToProps, mapDispatchToProps)(LoggedIn);
