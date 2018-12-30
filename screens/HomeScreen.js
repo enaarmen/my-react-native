@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { AppRegistry, View, Text } from 'react-native';
 import Login  from '../components/Login';
-//import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import MyApp from './MyApp';
+
+//folllowing done in App.js
 //var userReducers = require('./reducers/user');
 //var Login = require('../components/Login')
 

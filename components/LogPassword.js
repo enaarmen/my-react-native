@@ -34,11 +34,10 @@ export default class LogPassword extends Component {
             username: username,
             password: password
           }
-        }
-        this.setState(this.props.store);
+        };
         this.pressed = true;
         //this.firsttime = false;
-        return (this.state);
+        return (this.props.store);
       }
     
     /*renderLog (username, password) {
@@ -47,7 +46,7 @@ export default class LogPassword extends Component {
     }*/
     myAddPass(username, password) {
         this.firsttime = false;
-        this.setState({ user: { loggedIn: false, username: username, password: password}})
+        this.setState({ user: { loggedIn: true, username: username, password: password}});
         return (this.state);
     }
 
@@ -58,7 +57,8 @@ export default class LogPassword extends Component {
                 <LoggedIn store={this.state} />
             );*/
         /*else*/
-        if (this.pressed) { //this.state.user.loggedIn)
+        if (this.state.user.loggedIn) { //this.state.user.loggedIn)
+            console.log("Entering LoggedIn")
             return (
                 <View><LoggedIn store={this.state} /></View>
             );
@@ -70,9 +70,9 @@ export default class LogPassword extends Component {
                 </View>
             );
         } else if (!this.props.store.user.loggedIn && !this.pressed)
-            return (<View><Button title="connect" onPress={() => this.onLoginButtonPress(this.state.username, this.state.user.password)} /></View>);
+            return (<View><Button title="connect" onPress={() => this.onLoginButtonPress(this.state.user.username, this.state.user.password)} /></View>);
         else
-            return(<View><Text>Click on logging button</Text><Button title="connect" onPress={() => this.onLoginButtonPress(this.props.store.user.username, this.pass)} /></View>);
+            return(<View><Text>Click on logging button</Text><Button title="connect" onPress={this.onLoginButtonPress(this.state.user.username, this.state.user.password)} /></View>);
         /*else if ('user' in this.state && this.state.user.loggedIn && this.state.user.password != '') {
             <Button title="connect" onPress={() => {this.onLoginButtonPress(this.state.user.username, this.state.user.password); return (<LoggedIn store={this.state} />)}} />
         } */
