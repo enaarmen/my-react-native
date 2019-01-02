@@ -13,6 +13,8 @@ import {
 } from 'react-native';
 import { bindActionCreators } from 'redux'
 
+var SQLite = require('react-native-sqlite-storage');
+
 export default class LoggedIn extends Component {
     constructor(props) {
         super(props);

@@ -46,7 +46,7 @@ export default class LogPassword extends Component {
     }*/
     myAddPass(username, password) {
         this.firsttime = false;
-        this.setState({ user: { loggedIn: true, username: username, password: password}});
+        this.setState({ user: { loggedIn: false, username: username, password: password}});
         return (this.state);
     }
 
@@ -67,6 +67,7 @@ export default class LogPassword extends Component {
                 <View>
                     <Text>Enter your password.</Text>
                     <TextInput onChangeText={(text) => this.pass = text} onEndEditing={() => this.myAddPass(this.props.store.user.username, this.pass)} />
+                    <Button title="return to login name." onPress={() => {return (this.state)}} />
                 </View>
             );
         } else if (!this.pressed)

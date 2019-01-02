@@ -5,5 +5,5 @@
   "packagerPid": null,
   "expoServerNgrokUrl": "https://jv-gke.anonymous.my-react-native.exp.direct",
   "packagerNgrokUrl": "https://packager.jv-gke.anonymous.my-react-native.exp.direct",
-  "ngrokPid": 16560
+  "ngrokPid": 8181
 }
